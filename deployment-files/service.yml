@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: healthcare-app-service
+  labels:
+    app: healthcare-app
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "classic"  # Use AWS Classic Load Balancer (ELB)
 spec:
-  selector:
-    app: healthcare-app # Select pods with this label
+  type: LoadBalancer
   ports:
-    - protocol: TCP
-      port: 80  # The port on the service
-      targetPort: 8082 # The port on the pod
-  type: LoadBalancer # Expose the service via a cloud provider's load balancer
+  - port: 80
+    targetPort: 8082
+    protocol: TCP
+  selector:
+    app: healthcare-app

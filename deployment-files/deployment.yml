@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: healthcare-app-deployment
   labels:
-    app: healthcare-app  # Label for the deployment
+    app: healthcare-app
 spec:
-  replicas: 2  # Number of pods
+  replicas: 2
   selector:
     matchLabels:
-      app: healthcare-app  # Select pods with this label
+      app: healthcare-app
   template:
     metadata:
       labels:
-        app: healthcare-app  # Label for the pods
+        app: healthcare-app
     spec:
       containers:
       - name: healthcare-app-container
-        image: gayatrihedau/myproject1:18  # Your Docker image
+        image: gayatrihedau/myproject1:18
         ports:
-        - containerPort: 8082 # Container port
+        - containerPort: 8082
