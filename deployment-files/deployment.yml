@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcare-app-deployment
+  labels:
+    app: healthcare-app  # Label for the deployment
+spec:
+  replicas: 2  # Number of pods
+  selector:
+    matchLabels:
+      app: healthcare-app  # Select pods with this label
+  template:
+    metadata:
+      labels:
+        app: healthcare-app  # Label for the pods
+    spec:
+      containers:
+      - name: healthcare-app-container
+        image: gayatrihedau/myproject1:18  # Your Docker image
+        ports:
+        - containerPort: 8082 # Container port
