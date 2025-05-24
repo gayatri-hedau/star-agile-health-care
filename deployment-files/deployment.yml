@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: healthcare-app-container
-        image: gayatrihedau/myproject
+        image: gayatrihedau/myproject1
         ports:
         - containerPort: 8082
